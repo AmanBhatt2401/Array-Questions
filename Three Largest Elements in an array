@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void threeLargest(int arr[],int n)
+{
+    int i,first,second,third;
+    if(n<3)
+     cout<<"Invalid";
+     
+    first=second=third=INT_MIN;
+    
+    for(int i=0;i<n;i++)
+    {
+    if(arr[i]>first)
+    {
+        third=second;
+        second=first;
+        first=arr[i];
+    }
+    else if(arr[i]>second)
+    {
+        third=second;
+        second=arr[i];
+    }
+    else if(arr[i]>third)
+    third=arr[i];
+}
+cout<<endl<<"Three Largest Element are:-"<<first<<" "<<second<<" "<< third;
+}
+int main()
+{
+    int arr[]={5,6,7,88,96,2,1,22,3,55,6,633};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    
+    cout<<"Original Array:-";
+    for(int i=0;i<n;i++)
+     cout<<arr[i];
+     
+    threeLargest(arr,n); 
+}
