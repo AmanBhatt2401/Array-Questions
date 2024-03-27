@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+void kLargest(int arr[],int n,int key)
+{
+    sort(arr,arr+n,greater<int>());
+    
+    cout<<"Largest"<<" "<<key<<" "<<"Elements:-";
+    
+    for(int i=0;i<key;i++)
+    cout<<arr[i]<<" ";
+}
+int main()
+{
+    int arr[]={4,8,6,1,2,3,9,7,};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    
+    cout<<"Original Array:-";
+    for(int i=0;i<n;i++)
+    cout<<arr[i]<<" ";
+    cout<<endl;
+    int key=5;
+    kLargest(arr,n,key);
+}
