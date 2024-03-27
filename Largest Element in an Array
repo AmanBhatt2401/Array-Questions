@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int findLargest(int arr[],int n)
+{
+    return *max_element(arr,arr+n);
+}
+int main()
+{
+    int arr[]={4,5,6,1,2,78,3,5,97};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    
+    for(int i=0;i<n;i++)
+    cout<<arr[i]<<" ";
+    cout<<endl<<"Largest Elment is:";
+    
+    cout<<findLargest(arr,n);
+}
