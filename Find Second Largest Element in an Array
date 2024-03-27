@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void secondLargest(int arr[],int n)
+{
+    int i,first,second;
+    if(n<2)
+     return;
+     
+    first=second=INT_MIN;
+     
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]>first)
+        {
+            second=first;
+            first=arr[i];
+        }
+        else if(arr[i]>second)
+        {
+            second=arr[i];
+        }
+    }
+    cout<<endl<<"Second Largest:"<<second;
+}
+int main()
+{
+    int arr[]={4,5,6,3,5,1,7};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    
+    cout<<"Initial Array";
+    for(int i=0;i<n;i++)
+    cout<<arr[i];
+    
+    secondLargest(arr,n);
+}
