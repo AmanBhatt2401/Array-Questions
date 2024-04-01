@@ -1,0 +1,76 @@
+#include <iostream>  
+#include <string>   
+
+using namespace std;  
+
+
+string third_highest(string strArr[], int size) {
+
+    int len1, len2, len3, index1, index2, index3; 
+    len1 = len2 = len3 = 0; 
+
+    //  Get the length of the largest word in the string array
+    for (int y = 0; y < size; y++) {
+        if (strArr[y].length() > len1) {
+            len1 = strArr[y].length();  // Update len1 if a longer string is found
+            index1 = y;  // Save the index of the longest string
+        }
+    }
+
+    // Get the length of the second largest word in the string array
+    for (int z = 0; z < size; z++) {
+        if (strArr[z].length() >= len2 && z != index1) {
+            len2 = strArr[z].length();  // Update len2 if a longer string (excluding the first largest) is found
+            index2 = z;  // Save the index of the second longest string
+        }
+    }
+
+    // Get the length of the third largest word in the string array
+    for (int x = 0; x < size; x++) {
+        if (strArr[x].length() >= len3 && x != index1 && x != index2) {
+            len3 = strArr[x].length();  // Update len3 if a longer string (excluding the first and second largest) is found
+            index3 = x;  // Save the index of the third longest string
+        }
+    }
+
+    // Check if the lengths of the second and third largest strings are the same
+    if (len2 == len3) {
+        return strArr[index2];  // If equal, return the second longest string
+    } else {
+        return strArr[index3];  // Otherwise, return the third longest string
+    }
+}
+
+
+int main() {
+
+    
+    string S1[] = { "abcdefgh", "abcdefg", "abcdef", "abcde", "abcd" };
+    string S2[] = { "abc", "abc", "abc", "abc", "abc" };
+    string S3[] = { "abc", "abcd", "abcd" };
+
+    
+    int size_S1 = sizeof(S1)/sizeof(S1[0]);  
+    cout <<"Array elements: ";
+    for (int i = size_S1 - 1; i >= 0; i--) 
+        cout << S1[i] << " ";  
+    third_highest(S1, size_S1 ); 
+    cout << "\nThird highest length string: " << third_highest(S1, size_S1 ); 
+    cout << endl;
+
+    int size_S2 = sizeof(S2)/sizeof(S2[0]);  
+    cout <<"\nArray elements: ";
+    for (int i = size_S2 - 1; i >= 0; i--) 
+        cout << S2[i] << " ";  
+    cout << "\nThird highest length string: " << third_highest(S2, size_S2 );  
+    cout << endl;
+
+    int size_S3 = sizeof(S3)/sizeof(S3[0]);  
+    cout <<"\nArray elements: ";
+    for (int i = size_S3 - 1; i >= 0; i--) 
+        cout << S3[i] << " ";  
+    cout << "\nThird highest length string: " << third_highest(S3, size_S3 ); 
+    cout << endl;
+
+    return 0;  
+}
